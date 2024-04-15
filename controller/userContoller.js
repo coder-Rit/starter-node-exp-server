@@ -25,36 +25,26 @@ exports.signUpFaculty = catchAsyncErorr(async (req, res, next) => {
    
 }); 
  
-// loged in
+// logged in
 exports.login = catchAsyncErorr(async (req, res, next) => {
-  // const { email, password } = req.body;
+   const { email, password } = req.body;
   
-  // if (!email || !password) {
-  //   return next(
-  //     new ErrorHandler("Please enter your email or password", 400)
-  //   );
-  // } 
-  // const user = await userModel.findOne({ email }).select("+password"); 
-  // console.log(user);
-  // if (!user) {
-  //   return next(new ErrorHandler("User does not exist", 400));
-  // }
-  // const isPasswordMatched = await user.comparePassword(password);
+   if (!email || !password) {
+     return next(
+       new ErrorHandler("Please enter your email or password", 400)
+     );
+   } 
+   const user = await userModel.findOne({ email }).select("+password"); 
+   console.log(user);
+   if (!user) {
+     return next(new ErrorHandler("User does not exist", 400));
+   }
+   const isPasswordMatched = await user.comparePassword(password);
 
-  // if (!isPasswordMatched) {
-  //   return next(new ErrorHandler("Wrong Password", 404));
-  // }
-  // console.log(user); 
- let  user ={
-    _id: new ObjectId("64a17f6a046522ec417c8c99"),
-    username: 'faculty',
-    email: 'faculty@gmail.com',
-    role: 'teacher',
-    clgShortName: '',
-    status: 'unBand',
-    settings: { theme: 'light_theme' },
-    __v: 0
-  }
+   if (!isPasswordMatched) {
+     return next(new ErrorHandler("Wrong Password", 404));
+   }
+ 
   sendJwt(user, res, "LogeIn Successfully", 200, req);
 });
  
