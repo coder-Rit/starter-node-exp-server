@@ -22,10 +22,15 @@ app.use(bodyParser.urlencoded({extended:true}))
 
  
 
-//connection to the data base 
+//connection to the database 
 connectTODatabase()
 
 
+
+app.get("/",(req,res)=>{
+    res.send("🐲🐲 Working fine 🐲🐲")
+    console.log("🐲🐲 Working fine 🐲🐲")
+})
  
 
 
