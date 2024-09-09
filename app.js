@@ -35,13 +35,9 @@ app.get("/",(req,res)=>{
 
 
 const userRouter = require('./router/userRouter') 
-const productInfoRouter = require('./router/productInfoRouter') 
-const uploadsRouter = require('./router/uploadsRouter') 
  
 
 app.use("/api/v1", userRouter)
-app.use("/api/v1", productInfoRouter)
-app.use("/api/v1", uploadsRouter)
  
 
  
